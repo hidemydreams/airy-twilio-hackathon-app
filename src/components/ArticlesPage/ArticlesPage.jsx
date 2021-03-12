@@ -1,5 +1,5 @@
-import React from 'react'
-import "./ArticlesPage.scss"
+import React from 'react';
+import "./ArticlesPage.scss";
 
 export default function ArticlesPage(props) {
   return (
