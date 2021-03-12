@@ -37,6 +37,7 @@ export default function CheckPage() {
     if (value.trim()) {
       check(value);
     }
+    setValue("");
   }
   return (
     <div>
