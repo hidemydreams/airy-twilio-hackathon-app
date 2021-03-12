@@ -1,0 +1,11 @@
+@import "./styles/normalize";
+@import "./styles/variables";
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Sen", sans-serif;
+  background: $bg-color;
+  height: 100%;
+}
