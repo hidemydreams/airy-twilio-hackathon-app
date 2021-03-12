@@ -1,24 +1,28 @@
 @import "../../../styles/variables";
 .footer {
+  background-color: #95a1cc;
+  margin-bottom: 0;
+  &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .footer__nav {
-        display: flex;
-        .footer__list {
-            list-style-type: none;
-            li {
-                padding-bottom: 10px;
-            }
-            a {
-                color: $text-color;
-                text-decoration: none;
-            }
-        }
-    }
-    .createdBy {
-        text-align: center;
-        width: 15%;
+  }
+  .footer__nav {
+    display: flex;
+    .footer__list {
+      list-style-type: none;
+      li {
+        padding-bottom: 10px;
+      }
+      a {
         color: $text-color;
+        text-decoration: none;
+      }
     }
+  }
+  .createdBy {
+    text-align: center;
+    width: 15%;
+    color: $text-color;
+  }
 }

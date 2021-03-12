@@ -14,7 +14,7 @@ function App() {
         <main className="main">
           <Route exact path="/" render={() => <MainPage />}></Route>
           <Route path="/check" render={() => <CheckPage />}></Route>
-          <Route path="/articles" render={() => <ArticleList/>}></Route>
+          <Route path="/articles" render={() => <ArticleList />}></Route>
         </main>
         <Footer />
       </div>
