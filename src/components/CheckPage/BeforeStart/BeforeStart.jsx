@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import "./BeforeStart.scss";
 
 export default function BeforeStart() {
   return (

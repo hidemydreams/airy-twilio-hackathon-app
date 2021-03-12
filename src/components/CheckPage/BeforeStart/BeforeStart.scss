@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+
+.before-start {
+  color: $text-color;
+  max-width: 300px;
+  margin-bottom: 20px;
+  margin-left: 150px;
+
+  h3 {
+    font-size: 41px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      &:nth-child(1) {
+        background-color: rgba(#8ddd9f, 0.68);
+      }
+
+      &:nth-child(2) {
+        background-color: rgba(#b7c46d, 0.68);
+      }
+      &:nth-child(3) {
+        background-color: rgba(#cfb96a, 0.68);
+      }
+      &:nth-child(4) {
+        background-color: rgba(#df9157, 0.68);
+      }
+      &:nth-child(5) {
+        background-color: rgba(#ad5b56, 0.68);
+      }
+    }
+  }
+}
