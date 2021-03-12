@@ -19,8 +19,6 @@ export default function CheckPage() {
     fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=b2d2d94ac963070d2157287802797e13`)
       .then(data => data.json())
       .then(info => setAirInfo(info))
-
-    console.log(airInfo)
   }, [coordinates])
 
 
