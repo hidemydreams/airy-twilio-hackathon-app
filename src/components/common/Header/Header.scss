@@ -1,0 +1,25 @@
+/* airly */
+
+@import "../../../styles/variables";
+.nav {
+  display: flex;
+  justify-content: space-between;
+  color: $text-color;
+  margin-top: 30px;
+  .nav__list {
+    list-style-type: none;
+    display: flex;
+    li {
+      padding-left: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: $text-color;
+      font-size: 20px;
+
+      &.active {
+        color: darken($text-color, 5%);
+      }
+    }
+  }
+}
