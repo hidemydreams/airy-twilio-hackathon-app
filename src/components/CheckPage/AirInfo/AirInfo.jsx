@@ -1,27 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import BeforeStart from '../BeforeStart/BeforeStart'
+import React, { useEffect, useState } from 'react';
+import BeforeStart from '../BeforeStart/BeforeStart';
+import "./AirInfo.scss"
 
 export default function AirInfo({ airInfo }) {
-  const [info, setInfo] = useState(null)
-
-  useEffect(() => {
-    setInfo(airInfo)
-  }, [airInfo])
 
 
   return (
     <div className="info-section">
-      {airInfo.list ? (<ul>
-        <h1>{airInfo?.list[0].main.aqi}</h1>
-        <li><span>CO</span>: {airInfo.list[0].components.co}, μg/m<sup>3</sup></li>
-        <li><span>NO</span>:{airInfo.list[0].components.no}, μg/m<sup>3</sup></li>
-        <li><span>NO<sub>2</sub></span>:{airInfo.list[0].components.no2}, μg/m<sup>3</sup></li>
-        <li><span>O<sub>3</sub></span>:{airInfo.list[0].components.o3}, μg/m<sup>3</sup></li>
-        <li><span>SO<sub>2</sub></span>:{airInfo.list[0].components.so2}, μg/m<sup>3</sup></li>
-        <li><span>PM<sub>2.5</sub></span>:{airInfo.list[0].components.pm2_5}, μg/m<sup>3</sup></li>
-        <li><span>PM<sub>10</sub></span>:{airInfo.list[0].components.nh3}, μg/m<sup>3</sup></li>
-        <li><span>NH<sub>3</sub></span>:{airInfo.list[0].components.pm10}, μg/m<sup>3</sup></li>
-      </ul>) : <BeforeStart />}
+      {airInfo.list ? (<div className={`info-card ${airInfo?.list[0].main.aqi === 1 ? "green-card" : null || airInfo?.list[0].main.aqi === 2 ? "yellow-card" : null || airInfo?.list[0].main.aqi === 3 ? "orange-card" : null || airInfo?.list[0].main.aqi === 4 ? "dark_orange-card" : null || airInfo?.list[0].main.aqi === 5 ? "red-card" : null}`}>
+        <div className="left-side">
+          <h1>{airInfo?.list[0].main.aqi === 1 ? "Clean Air" : null || airInfo?.list[0].main.aqi === 2 ? "Moderate" : null || airInfo?.list[0].main.aqi === 3 ? "Unhealthy" : null || airInfo?.list[0].main.aqi === 4 ? "Very Unhealthy" : null || airInfo?.list[0].main.aqi === 5 ? "Hazardous" : null}</h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+        </div>
+        <div className="right-side">
+          <h3>Chemical Compounds</h3>
+          <ul className="chemical-list">
+            <li><span>CO</span>: {airInfo.list[0].components.co}, μg/m<sup>3</sup></li>
+            <li><span>NO</span>:{airInfo.list[0].components.no}, μg/m<sup>3</sup></li>
+            <li><span>NO<sub>2</sub></span>:{airInfo.list[0].components.no2}, μg/m<sup>3</sup></li>
+            <li><span>O<sub>3</sub></span>:{airInfo.list[0].components.o3}, μg/m<sup>3</sup></li>
+            <li><span>SO<sub>2</sub></span>:{airInfo.list[0].components.so2}, μg/m<sup>3</sup></li>
+            <li><span>PM<sub>2.5</sub></span>:{airInfo.list[0].components.pm2_5}, μg/m<sup>3</sup></li>
+            <li><span>PM<sub>10</sub></span>:{airInfo.list[0].components.nh3}, μg/m<sup>3</sup></li>
+            <li><span>NH<sub>3</sub></span>:{airInfo.list[0].components.pm10}, μg/m<sup>3</sup></li>
+          </ul>
+        </div>
+      </div>) : <BeforeStart />}
     </div>
   )
 }
