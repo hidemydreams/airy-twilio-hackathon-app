@@ -40,7 +40,7 @@ export default function CheckPage() {
     setValue("");
   }
   return (
-    <div>
+    <div className="check-page">
       <MapSearch submitHandler={submitHandler} check={check} value={value} searchChangeHandler={searchChangeHandler} />
       <AirInfo airInfo={airInfo} />
     </div>
