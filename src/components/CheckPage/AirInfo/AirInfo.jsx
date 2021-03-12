@@ -4,13 +4,14 @@ import "./AirInfo.scss"
 
 export default function AirInfo({ airInfo }) {
 
-
   return (
     <div className="info-section">
       {airInfo.list ? (<div className={`info-card ${airInfo?.list[0].main.aqi === 1 ? "green-card" : null || airInfo?.list[0].main.aqi === 2 ? "yellow-card" : null || airInfo?.list[0].main.aqi === 3 ? "orange-card" : null || airInfo?.list[0].main.aqi === 4 ? "dark_orange-card" : null || airInfo?.list[0].main.aqi === 5 ? "red-card" : null}`}>
         <div className="left-side">
           <h1>{airInfo?.list[0].main.aqi === 1 ? "Clean Air" : null || airInfo?.list[0].main.aqi === 2 ? "Moderate" : null || airInfo?.list[0].main.aqi === 3 ? "Unhealthy" : null || airInfo?.list[0].main.aqi === 4 ? "Very Unhealthy" : null || airInfo?.list[0].main.aqi === 5 ? "Hazardous" : null}</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+          <div className="left-side__info">
+            {airInfo?.list[0].main.aqi === 1 ? <p>Nice air you are good to go</p> : null || airInfo?.list[0].main.aqi === 2 ? <p>Moderate air you are good to go</p> : null || airInfo?.list[0].main.aqi === 3 ? <p>Unhealthy air not so good</p> : null || airInfo?.list[0].main.aqi === 4 ? <p>Very Unhealthy</p> : null || airInfo?.list[0].main.aqi === 5 ? <p>Get out of this place!!</p> : null}
+          </div>
         </div>
         <div className="right-side">
           <h3>Chemical Compounds</h3>
