@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 
-export default function MapSearch({ submitHandler, value, searchChangeHandler, getPlaceCoordinates }) {
+export default function MapSearch({ submitHandler, value, searchChangeHandler }) {
   return (
     <div>
       <form onSubmit={submitHandler}>
