@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AirInfo from './AirInfo/AirInfo'
 import MapSearch from './MapSearch/MapSearch'
+import "./CheckPage.scss";
 
 export default function CheckPage() {
   const [value, setValue] = useState("");

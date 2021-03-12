@@ -8,6 +8,7 @@ export default function AirInfo({ airInfo }) {
     setInfo(airInfo)
   }, [airInfo])
 
+
   return (
     <div className="info-section">
       {airInfo.list ? (<ul>
