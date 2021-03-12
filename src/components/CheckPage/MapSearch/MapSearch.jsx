@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import "./MapSearch.scss"
+import "./MapSearch.scss";
+import GoogleMapReact from "react-google-maps";
 
 export default function MapSearch({ submitHandler, value, searchChangeHandler }) {
   const [map, setMap] = useState(false)
