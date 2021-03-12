@@ -7,7 +7,7 @@ export default function ArticlesPage(props) {
      <div className="card">
         <h1>{props.title}</h1>
          <p>{props.description}</p>
-         <a href="#">Learn More &gt;</a>
+         <a href={props.url}>Learn More &gt;</a>
        </div>
       
        
