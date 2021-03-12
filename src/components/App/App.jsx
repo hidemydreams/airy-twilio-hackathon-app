@@ -4,7 +4,7 @@ import "./App.scss";
 import { Switch, Router, Route } from "react-router-dom";
 import Header from "../common/Header/Header";
 import Footer from "../common/Footer/Footer";
-import ArticlesPage from "../ArticlesPage/ArticlesPage";
+import ArticleList from "../ArticlesPage/ArticleList";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <main className="main">
           <Route exact path="/" render={() => <MainPage />}></Route>
           <Route path="/check" render={() => <CheckPage />}></Route>
-          <Route path="/articles" render={() => <ArticlesPage />}></Route>
+          <Route path="/articles" render={() => <ArticleList/>}></Route>
         </main>
         <Footer />
       </div>
