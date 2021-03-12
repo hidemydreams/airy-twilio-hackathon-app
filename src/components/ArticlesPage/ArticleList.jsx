@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticlesPage from "./ArticlesPage";
+import './ArticleList.scss';
 
 const articles=[
     {
@@ -29,7 +30,7 @@ const articles=[
 ]
 
 const ArticleList=()=>(
-    <div>
+    <div className="ArticleList">
         {articles.map(article=>(
         <ArticlesPage title={article.title} description={article.description}/>
     ))}
