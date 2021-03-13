@@ -40,7 +40,7 @@ const ArticleList = () => (
     <div className="container">
         <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="ArticleList">
             {articles.map(article => (
-                <ArticlesPage title={article.title} description={article.description} url={article.url} />
+                <ArticlesPage key={article.title} title={article.title} description={article.description} url={article.url} />
             ))}
         </motion.div>
     </div>

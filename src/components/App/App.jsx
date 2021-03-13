@@ -1,7 +1,7 @@
 import CheckPage from "../CheckPage/CheckPage";
 import MainPage from "../MainPage/MainPage";
 import "./App.scss";
-import { Switch, Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "../common/Header/Header";
 import Footer from "../common/Footer/Footer";
 import ArticleList from "../ArticlesPage/ArticleList";

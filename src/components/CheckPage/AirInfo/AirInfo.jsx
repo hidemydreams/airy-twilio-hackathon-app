@@ -7,7 +7,7 @@ export default function AirInfo({ airInfo }) {
 
   return (
     <div className="info-section">
-      {airInfo.list ? (<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className={`info-card ${airInfo?.list[0].main.aqi === 1 ? "green-card" : null || airInfo?.list[0].main.aqi === 2 ? "yellow-card" : null || airInfo?.list[0].main.aqi === 3 ? "orange-card" : null || airInfo?.list[0].main.aqi === 4 ? "dark_orange-card" : null || airInfo?.list[0].main.aqi === 5 ? "red-card" : null}`}>
+      {airInfo ? (<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className={`info-card ${airInfo?.list[0].main.aqi === 1 ? "green-card" : null || airInfo?.list[0].main.aqi === 2 ? "yellow-card" : null || airInfo?.list[0].main.aqi === 3 ? "orange-card" : null || airInfo?.list[0].main.aqi === 4 ? "dark_orange-card" : null || airInfo?.list[0].main.aqi === 5 ? "red-card" : null}`}>
         <div className="left-side">
           <h1>{airInfo?.list[0].main.aqi === 1 ? "Clean Air" : null || airInfo?.list[0].main.aqi === 2 ? "Moderate" : null || airInfo?.list[0].main.aqi === 3 ? "Unhealthy" : null || airInfo?.list[0].main.aqi === 4 ? "Very Unhealthy" : null || airInfo?.list[0].main.aqi === 5 ? "Hazardous" : null}</h1>
           <div className="left-side__info">

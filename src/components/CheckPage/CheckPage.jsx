@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 export default function CheckPage() {
   const [value, setValue] = useState("");
   const [cityInfo, setCityInfo] = useState(null);
-  const [airInfo, setAirInfo] = useState({});
+  const [airInfo, setAirInfo] = useState(null);
   const [map, setMap] = useState(false)
 
   const getLongitudeLatitudeFromInput = () => {
