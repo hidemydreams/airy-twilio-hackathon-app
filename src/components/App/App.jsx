@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Header from "../common/Header/Header";
 import Footer from "../common/Footer/Footer";
 import ArticleList from "../ArticlesPage/ArticleList";
-import Charts from "../charts/charts"
+import Charts from "../charts/Chart"
 
 function App() {
   return (
