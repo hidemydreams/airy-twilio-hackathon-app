@@ -1,6 +1,8 @@
+
 import React from 'react';
 import SimpleMap from './GoogleMap/GoogleMap';
 import "./MapSearch.scss"
+
 
 export default function MapSearch({ map, value, searchChangeHandler, getLongitudeLatitudeFromInput, latitude, longitude }) {
 
