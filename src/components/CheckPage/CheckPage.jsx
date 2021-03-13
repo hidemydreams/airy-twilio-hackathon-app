@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AirInfo from './AirInfo/AirInfo'
 import MapSearch from './MapSearch/MapSearch'
 import "./CheckPage.scss";
+import { motion } from "framer-motion"
 
 export default function CheckPage() {
   const [value, setValue] = useState("");
@@ -41,9 +42,11 @@ export default function CheckPage() {
     setValue("");
   }
   return (
-    <div className="check-page">
-      <MapSearch submitHandler={submitHandler} check={check} value={value} searchChangeHandler={searchChangeHandler} />
-      <AirInfo airInfo={airInfo} />
+    <div className="container">
+      <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
+        <MapSearch submitHandler={submitHandler} check={check} value={value} searchChangeHandler={searchChangeHandler} />
+        <AirInfo airInfo={airInfo} />
+      </motion.div>
     </div>
   )
 }

@@ -23,6 +23,9 @@
 
     li {
       margin-bottom: 10px;
+      padding: 0.5em;
+      border-radius: 15px;
+      font-size: 20px;
 
       &:nth-child(1) {
         background-color: rgba(#8ddd9f, 0.68);
