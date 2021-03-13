@@ -1,12 +1,21 @@
 @import "../../../styles/variables";
 
 .mapSearch {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    .mapSearch__map-off {
-        display: none;
+  width: 40%;
+  margin-right: 7%;
+  display: flex;
+  flex-direction: column;
+  .mapSearch__map-off {
+    display: none;
+  }
+  .mapSearch__text {
+    color: $text-color;
+    h1 {
+      font-size: 40px;
+      line-height: 0.9;
+      margin-bottom: 20px;
     }
+<<<<<<< HEAD
     .mapSearch__text {
         color: $text-color;
         h1 {
@@ -42,6 +51,43 @@
             color: $bg-color;
             cursor: pointer;
         }
+=======
+    p {
+      font-size: 20px;
     }
-    
+  }
+  .search-input {
+    background-color: $bg-color;
+    padding: 0.8em;
+    margin: 20px 0 20px 0;
+    border: 3px solid $text-color;
+    outline: none;
+    color: white;
+    transition: 0.2s;
+    border-radius: 10px;
+
+    &:focus {
+      border: 3px solid #8691b9;
+    }
+  }
+  .search-input::placeholder {
+    color: $text-color;
+    font-size: 16px;
+  }
+  button {
+    width: 120px;
+    height: 40px;
+    background-color: #8691b9;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: 0.2s;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background-color: #98c3b4;
+>>>>>>> main
+    }
+  }
 }
