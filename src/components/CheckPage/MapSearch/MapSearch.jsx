@@ -8,8 +8,7 @@ import PlacesAutocomplete, {
 
 
 export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress }) {
-
-
+  console.log(latitude, longitude)
   return (
     <div className="mapSearch">
       <div className={map ? "mapSearch__map-off" : null}>
