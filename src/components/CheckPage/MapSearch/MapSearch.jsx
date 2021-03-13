@@ -1,10 +1,14 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import SimpleMap from './GoogleMap/GoogleMap';
-import "./MapSearch.scss"
+import "./MapSearch.scss";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 
-export default function MapSearch({ map, value, searchChangeHandler, getLongitudeLatitudeFromInput, latitude, longitude }) {
+export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress }) {
+
 
   return (
     <div className="mapSearch">
@@ -17,8 +21,26 @@ export default function MapSearch({ map, value, searchChangeHandler, getLongitud
       <div className={map ? "mapSearch__map-on" : "mapSearch__map-off"}>
         <SimpleMap latitude={latitude} longitude={longitude} />
       </div>
-      <input className="search-input" value={value} onChange={(e) => searchChangeHandler(e)} placeholder="Enter your location" ></input>
-      <div><button onClick={() => getLongitudeLatitudeFromInput()}> Check</button></div>
+      <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}  >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
+          return (
+            <div>
+              <input className="search-input" {...getInputProps({ placeholder: "Enter your location" })} />
+              <div>
+                {loading ? <div>loading</div> : null}
+                {suggestions.map((suggestion) => {
+                  const style = {
+                    backgroundColor: suggestion.active ? "#273893" : "#fff",
+                    padding: "10px"
+                  }
+                  return <div key={suggestion.description} {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
+                })}
+              </div>
+            </div>
+          )
+        }}
+      </PlacesAutocomplete>
+      <div><button onClick={() => getAirInfo()}> Check</button></div>
     </div>
   )
 }

@@ -3,11 +3,6 @@ import ArticlesPage from "./ArticlesPage";
 import './ArticleList.scss';
 import { motion } from "framer-motion"
 
-import PlacesAutocomplete, {
-    geocodeByAddress,
-    getLatLng,
-} from 'react-places-autocomplete';
-
 const articles = [
     {
         title: 'CO',
@@ -42,16 +37,6 @@ const articles = [
 ]
 
 const ArticleList = () => {
-
-    const [address, setAddress] = useState('');
-    const [coords, setCoords] = useState({ lat: null, lng: null });
-
-    const handleSelect = async (value) => {
-        const results = await geocodeByAddress(value);
-        const latLng = await getLatLng(results[0])
-        setCoords(latLng);
-        setAddress(value);
-    }
     return (
         <div className="container">
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="ArticleList">
@@ -59,25 +44,7 @@ const ArticleList = () => {
                     <ArticlesPage key={article.title} title={article.title} description={article.description} url={article.url} />
                 ))}
             </motion.div>
-            <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}  >
-                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
-                    return (
-                        <div>
-                            <input {...getInputProps({ placeholder: "Type Adress" })} />
-                            <div>
-                                {loading ? <div>loading</div> : null}
-                                {suggestions.map((suggestion) => {
-                                    const style = {
-                                        backgroundColor: suggestion.active ? "#273893" : "#fff",
-                                        padding: "10px"
-                                    }
-                                    return <div {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
-                                })}
-                            </div>
-                        </div>
-                    )
-                }}
-            </PlacesAutocomplete>
+
         </div>
     )
 }

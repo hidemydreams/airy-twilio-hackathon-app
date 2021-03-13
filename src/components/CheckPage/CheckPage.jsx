@@ -4,42 +4,38 @@ import MapSearch from './MapSearch/MapSearch'
 import Geolocation from "../GeoLocation/GeoLocation"
 import "./CheckPage.scss";
 import { motion } from "framer-motion"
+import {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 export default function CheckPage() {
-  const [value, setValue] = useState("");
-  const [cityInfo, setCityInfo] = useState(null);
   const [airInfo, setAirInfo] = useState(null);
-  const [map, setMap] = useState(false)
+  const [map, setMap] = useState(false);
+  const [address, setAddress] = useState('');
 
-  const getLongitudeLatitudeFromInput = () => {
-    return fetch(`http://api.positionstack.com/v1/forward?access_key=5bf71cd20c0cb84d02789c1031d43a14&query=${value}`)
-      .then(response => response.json())
-      .then(info => setCityInfo(info.data[0]))
+  const [coords, setCoords] = useState({ lat: null, lng: null });
+
+  const handleSelect = async (value) => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0])
+    setCoords(latLng);
+    setAddress(value);
   }
 
-  useEffect(() => {
-    if (cityInfo) {
-      fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&appid=b2d2d94ac963070d2157287802797e13`)
-        .then(data => data.json())
-        .then(info => setAirInfo(info))
+  const getAirInfo = () => {
+    fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${coords.lat}&lon=${coords.lng}&appid=b2d2d94ac963070d2157287802797e13`)
+      .then(data => data.json())
+      .then(info => setAirInfo(info))
 
-      setMap(true)
-    }
-  }, [cityInfo])
-
-  const searchChangeHandler = (e) => {
-    setValue(e.target.value)
-  }
-
-  const geolocationHandler = (value) => {
-    setValue(value)
+    setMap(true)
   }
 
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
-        <MapSearch map={map} getLongitudeLatitudeFromInput={getLongitudeLatitudeFromInput} value={value} searchChangeHandler={searchChangeHandler} latitude={cityInfo?.latitude} longitude={cityInfo?.longitude} />
-        <Geolocation geolocationHandler={geolocationHandler} />
+        <MapSearch setAddress={setAddress} getAirInfo={getAirInfo} map={map} handleSelect={handleSelect} address={address} latitude={coords.lat} longitude={coords.lng} />
+        <Geolocation />
         <AirInfo airInfo={airInfo} />
       </motion.div>
     </div>

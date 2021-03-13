@@ -19,8 +19,6 @@ class GeoLocation extends React.Component {
 
   }
   render() {
-
-    console.log(this.state)
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
     ) : !this.props.isGeolocationEnabled ? (
