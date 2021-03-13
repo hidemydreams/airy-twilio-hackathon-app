@@ -24,6 +24,9 @@ export default function CheckPage() {
   }
 
   const getAirInfo = (lat = coords.lat, lng = coords.lng) => {
+    if (address == Number || address == '') {
+      return
+    }
     fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=b2d2d94ac963070d2157287802797e13`)
       .then(data => data.json())
       .then(info => setAirInfo(info))
