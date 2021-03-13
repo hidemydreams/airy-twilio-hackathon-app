@@ -6,8 +6,9 @@ import { motion } from "framer-motion"
 
 export default function CheckPage() {
   const [value, setValue] = useState("");
-  const [cityInfo, setCityInfo] = useState({});
+  const [cityInfo, setCityInfo] = useState(null);
   const [airInfo, setAirInfo] = useState({});
+  const [map, setMap] = useState(false)
 
   const getLongitudeLatitudeFromInput = () => {
     return fetch(`http://api.positionstack.com/v1/forward?access_key=5bf71cd20c0cb84d02789c1031d43a14&query=${value}`)
@@ -16,9 +17,13 @@ export default function CheckPage() {
   }
 
   useEffect(() => {
-    return fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&appid=b2d2d94ac963070d2157287802797e13`)
-      .then(data => data.json())
-      .then(info => setAirInfo(info))
+    if (cityInfo) {
+      fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&appid=b2d2d94ac963070d2157287802797e13`)
+        .then(data => data.json())
+        .then(info => setAirInfo(info))
+
+      setMap(true)
+    }
   }, [cityInfo])
 
   const searchChangeHandler = (e) => {
@@ -28,7 +33,7 @@ export default function CheckPage() {
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
-        <MapSearch getLongitudeLatitudeFromInput={getLongitudeLatitudeFromInput} value={value} searchChangeHandler={searchChangeHandler} />
+        <MapSearch map={map} getLongitudeLatitudeFromInput={getLongitudeLatitudeFromInput} value={value} searchChangeHandler={searchChangeHandler} />
         <AirInfo airInfo={airInfo} />
       </motion.div>
     </div>

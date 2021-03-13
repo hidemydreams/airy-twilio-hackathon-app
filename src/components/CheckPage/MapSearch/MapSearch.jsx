@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import "./MapSearch.scss"
 
-export default function MapSearch({ submitHandler, value, searchChangeHandler, getLongitudeLatitudeFromInput }) {
-  const [map, setMap] = useState(false)
+export default function MapSearch({ map, value, searchChangeHandler, getLongitudeLatitudeFromInput }) {
   return (
     <div className="mapSearch">
       <div className={map ? "mapSearch__map-off" : null}>
