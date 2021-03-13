@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import SimpleMap from './GoogleMap/GoogleMap';
 import "./MapSearch.scss"
 
-export default function MapSearch({ map, value, searchChangeHandler, getLongitudeLatitudeFromInput }) {
+export default function MapSearch({ map, value, searchChangeHandler, getLongitudeLatitudeFromInput, latitude, longitude }) {
+
   return (
     <div className="mapSearch">
       <div className={map ? "mapSearch__map-off" : null}>
@@ -10,7 +12,9 @@ export default function MapSearch({ map, value, searchChangeHandler, getLongitud
           <p>Enter your city or country to get information about the air you are breathing!</p>
         </div>
       </div>
-      <div className={map ? "mapSearch__map-on" : "mapSearch__map-off"}>map</div>
+      <div className={map ? "mapSearch__map-on" : "mapSearch__map-off"}>
+        <SimpleMap latitude={latitude} longitude={longitude} />
+      </div>
       <input className="search-input" value={value} onChange={(e) => searchChangeHandler(e)} placeholder="Enter your location" ></input>
       <div><button onClick={() => getLongitudeLatitudeFromInput()}> Check</button></div>
     </div>

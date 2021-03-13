@@ -33,7 +33,7 @@ export default function CheckPage() {
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
-        <MapSearch map={map} getLongitudeLatitudeFromInput={getLongitudeLatitudeFromInput} value={value} searchChangeHandler={searchChangeHandler} />
+        <MapSearch map={map} getLongitudeLatitudeFromInput={getLongitudeLatitudeFromInput} value={value} searchChangeHandler={searchChangeHandler} latitude={cityInfo?.latitude} longitude={cityInfo?.longitude} />
         <AirInfo airInfo={airInfo} />
       </motion.div>
     </div>
