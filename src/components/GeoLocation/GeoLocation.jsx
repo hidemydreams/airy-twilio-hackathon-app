@@ -4,21 +4,20 @@ import { geolocated } from "react-geolocated";
 class GeoLocation extends React.Component {
 
   state = {
-    coordinates: {}
+    countryCity: ``
   }
 
-  componentDidMount() {
-    if (this.props.coords?.latitude) {
-      fetch(`http://api.positionstack.com/v1/reverse?access_key=5bf71cd20c0cb84d02789c1031d43a14&query=${this.props.coords.latitude},${this.props.coords.longitude}`)
-        .then(data => data.json())
-        .then(info => console.log(info))
+  async componentDidUpdate(prevProps) {
+    if (prevProps.coords !== this.props.coords) {
+      const response = await fetch(`http://api.positionstack.com/v1/reverse?access_key=5bf71cd20c0cb84d02789c1031d43a14&query=${this.props.coords.latitude},${this.props.coords.longitude}`);
+      const data = await response.json()
 
-
-
+      this.setState({ countryCity: `${data.data[0].country}, ${data.data[0].locality}` })
     }
 
   }
   render() {
+    const { setUserLocation } = this.props
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
     ) : !this.props.isGeolocationEnabled ? (
@@ -47,6 +46,7 @@ class GeoLocation extends React.Component {
             <td>{this.props.coords.speed}</td>
           </tr>
         </tbody>
+        <button onClick={() => setUserLocation(this.state.countryCity)}></button>
       </table>
     ) : (
       <div>Getting the location data&hellip; </div>
