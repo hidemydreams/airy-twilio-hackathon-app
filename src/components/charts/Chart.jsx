@@ -61,6 +61,57 @@ class ChartBar extends Component{
     
      
 
+  render() {
+    return (
+      <div className="chart">
+        <Bar
+          data={this.state.chartData}
+          options={{
+            title: {
+              display: this.props.displayTitle,
+              text: 'The most polluted air in ' + this.props.location,
+              fontSize: 25
+            },
+            legend: {
+              display: this.props.displayLegend,
+              position: this.props.legendPosition
+            }
+          }}
+        />
+
+        <Line
+          data={this.state.chartData}
+          options={{
+            title: {
+              display: this.props.displayTitle,
+              text: 'The most polluted air in' + this.props.location,
+              fontSize: 25
+            },
+            legend: {
+              display: this.props.displayLegend,
+              position: this.props.legendPosition
+            }
+          }}
+        />
+
+        <Pie
+          data={this.state.chartData}
+          options={{
+            title: {
+              display: this.props.displayTitle,
+              text: 'The most polluted air in ' + this.props.location,
+              fontSize: 25
+            },
+            legend: {
+              display: this.props.displayLegend,
+              position: this.props.legendPosition
+            }
+          }}
+        />
+      </div>
+    )
+  }
 
 
-  export default ChartBar;  
+
+export default ChartBar;

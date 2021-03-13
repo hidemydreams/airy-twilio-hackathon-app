@@ -14,21 +14,18 @@ class SimpleMap extends Component {
         zoom: 9
     };
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps.latitude !== this.props.latitude) {
-            console.log("123")
             this.setState({ center: { lat: this.props.latitude, lng: this.props.longitude } })
         }
     }
 
     render() {
-
-        console.log(this.state)
         return (
             // Important! Always set the container height explicitly
             <div className="googleMap">
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyCTU2quk0FQWK8wWLbSEwJJV-Gt3OhTsvI" }}
+                    bootstrapURLKeys={{ key: "AIzaSyDlPyxNVQFDy56p94TpXc4ezfuEUS0asYQ" }}
                     center={this.state.center}
                     defaultZoom={this.state.zoom}
                 >
@@ -45,11 +42,4 @@ class SimpleMap extends Component {
 
 export default SimpleMap;
 
-// state = {
-//     center: {
-//         lat: 53,
-//         lng: 27
-//     },
-//     zoom: 11
-// };
 

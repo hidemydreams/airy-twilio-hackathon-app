@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ArticlesPage from "./ArticlesPage";
 import './ArticleList.scss';
 import { motion } from "framer-motion"
@@ -36,13 +36,16 @@ const articles = [
     }
 ]
 
-const ArticleList = () => (
-    <div className="container">
-        <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="ArticleList">
-            {articles.map(article => (
-                <ArticlesPage title={article.title} description={article.description} url={article.url} />
-            ))}
-        </motion.div>
-    </div>
-)
+const ArticleList = () => {
+    return (
+        <div className="container">
+            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="ArticleList">
+                {articles.map(article => (
+                    <ArticlesPage key={article.title} title={article.title} description={article.description} url={article.url} />
+                ))}
+            </motion.div>
+
+        </div>
+    )
+}
 export default ArticleList;

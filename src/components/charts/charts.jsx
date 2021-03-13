@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ChartBar from './Chart';
 
 class Charts extends Component {
@@ -92,8 +92,8 @@ class Charts extends Component {
               }
             ]
           }
-        });
-      }
+        ]
+      }}
       render()
        {
         return (
