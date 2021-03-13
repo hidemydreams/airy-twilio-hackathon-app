@@ -2,7 +2,25 @@ import React from "react";
 import { geolocated } from "react-geolocated";
 
 class GeoLocation extends React.Component {
+
+  state = {
+    coordinates: {}
+  }
+
+  componentDidMount() {
+    if (this.props.coords?.latitude) {
+      fetch(`http://api.positionstack.com/v1/reverse?access_key=5bf71cd20c0cb84d02789c1031d43a14&query=${this.props.coords.latitude},${this.props.coords.longitude}`)
+        .then(data => data.json())
+        .then(info => console.log(info))
+
+
+
+    }
+
+  }
   render() {
+
+    console.log(this.state)
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
     ) : !this.props.isGeolocationEnabled ? (
