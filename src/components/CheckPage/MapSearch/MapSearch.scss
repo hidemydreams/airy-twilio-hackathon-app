@@ -15,43 +15,6 @@
       line-height: 0.9;
       margin-bottom: 20px;
     }
-<<<<<<< HEAD
-    .mapSearch__text {
-        color: $text-color;
-        h1 {
-            font-size: 49px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 22px;
-        }
-    }
-    .searchForm{
-        input {
-            color: $text-color;
-            font-size: 1.5rem;
-            background-color: $bg-color;
-            width: 360px;
-            height: 40px;
-            margin: 20px 0 20px 0;
-            border: 1px solid $text-color;
-        }
-        input::placeholder {
-            color: $text-color;
-            font-size: 1.5rem;
-            padding-left: 10px;
-        }
-        button {
-            font-size: 1.5rem;
-            width: 120px;
-            height: 40px;
-            background-color: $text-color;
-            border: none;
-            border-radius: 5px;
-            color: $bg-color;
-            cursor: pointer;
-        }
-=======
     p {
       font-size: 20px;
     }
@@ -87,7 +50,6 @@
 
     &:hover {
       background-color: #98c3b4;
->>>>>>> main
     }
   }
 }

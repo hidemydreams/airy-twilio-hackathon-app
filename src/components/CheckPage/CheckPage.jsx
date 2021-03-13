@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AirInfo from './AirInfo/AirInfo'
 import MapSearch from './MapSearch/MapSearch'
+import Geolocation from "../GeoLocation/GeoLocation"
 import "./CheckPage.scss";
 import { motion } from "framer-motion"
 
@@ -30,10 +31,15 @@ export default function CheckPage() {
     setValue(e.target.value)
   }
 
+  const geolocationHandler = (value) => {
+    setValue(value)
+  }
+
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
         <MapSearch map={map} getLongitudeLatitudeFromInput={getLongitudeLatitudeFromInput} value={value} searchChangeHandler={searchChangeHandler} latitude={cityInfo?.latitude} longitude={cityInfo?.longitude} />
+        <Geolocation geolocationHandler={geolocationHandler} />
         <AirInfo airInfo={airInfo} />
       </motion.div>
     </div>

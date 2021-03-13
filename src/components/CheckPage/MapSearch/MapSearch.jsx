@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import "./MapSearch.scss";
-import GoogleMapReact from "react-google-maps";
-=======
+
 import React from 'react';
 import SimpleMap from './GoogleMap/GoogleMap';
 import "./MapSearch.scss"
->>>>>>> main
+
 
 export default function MapSearch({ map, value, searchChangeHandler, getLongitudeLatitudeFromInput, latitude, longitude }) {
 
