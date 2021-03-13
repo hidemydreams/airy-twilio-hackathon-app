@@ -5,6 +5,7 @@ import { Switch, Router, Route } from "react-router-dom";
 import Header from "../common/Header/Header";
 import Footer from "../common/Footer/Footer";
 import ArticleList from "../ArticlesPage/ArticleList";
+import Charts from "../charts/charts"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" render={() => <MainPage />}></Route>
           <Route path="/check" render={() => <CheckPage />}></Route>
           <Route path="/articles" render={() => <ArticleList />}></Route>
+          <Route path="/charts" render={() => <Charts />}></Route>
         </main>
         <Footer />
       </div>
