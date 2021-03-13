@@ -12,7 +12,7 @@ class GeoLocation extends React.Component {
       const response = await fetch(`http://api.positionstack.com/v1/reverse?access_key=5bf71cd20c0cb84d02789c1031d43a14&query=${this.props.coords.latitude},${this.props.coords.longitude}`);
       const data = await response.json()
 
-      this.setState({ countryCity: `${data.data[0].country}, ${data.data[0].locality}` })
+      this.setState({ countryCity: `${data.data[0].locality}` })
     }
 
   }
