@@ -18,6 +18,12 @@
       a {
         color: $text-color;
         text-decoration: none;
+
+        transition: 0.2s;
+
+        &:hover {
+          color: #5b6176;
+        }
       }
     }
   }

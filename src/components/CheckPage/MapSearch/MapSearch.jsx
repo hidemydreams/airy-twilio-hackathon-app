@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./MapSearch.scss"
 
-export default function MapSearch({ submitHandler, value, searchChangeHandler }) {
+export default function MapSearch({ submitHandler, value, searchChangeHandler, getLongitudeLatitudeFromInput }) {
   const [map, setMap] = useState(false)
   return (
     <div className="mapSearch">
@@ -12,10 +12,8 @@ export default function MapSearch({ submitHandler, value, searchChangeHandler })
         </div>
       </div>
       <div className={map ? "mapSearch__map-on" : "mapSearch__map-off"}>map</div>
-      <form className="searchForm" onSubmit={submitHandler}>
-        <input value={value} onChange={(e) => searchChangeHandler(e)} placeholder="Enter your location" ></input>
-        <div><button onClick={() => setMap(true)} >Check</button></div>
-      </form>
+      <input className="search-input" value={value} onChange={(e) => searchChangeHandler(e)} placeholder="Enter your location" ></input>
+      <div><button onClick={() => getLongitudeLatitudeFromInput()}> Check</button></div>
     </div>
   )
 }
