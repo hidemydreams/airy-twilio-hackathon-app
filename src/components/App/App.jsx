@@ -1,7 +1,7 @@
 import CheckPage from "../CheckPage/CheckPage";
 import MainPage from "../MainPage/MainPage";
 import "./App.scss";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Header from "../common/Header/Header";
 import Footer from "../common/Footer/Footer";
 import ArticleList from "../ArticlesPage/ArticleList";
@@ -13,10 +13,12 @@ function App() {
       <div className="wrapper">
         <Header />
         <main className="main">
-          <Route exact path="/" render={() => <MainPage />}></Route>
-          <Route path="/check" render={() => <CheckPage />}></Route>
-          <Route path="/articles" render={() => <ArticleList />}></Route>
-          <Route path="/charts" render={() => <Charts />}></Route>
+          <Switch>
+            <Route exact path="/" c render={() => <MainPage />}></Route>
+            <Route path="/check" render={() => <CheckPage />}></Route>
+            <Route path="/articles" render={() => <ArticleList />}></Route>
+            <Route path="/charts" render={() => <Charts />}></Route>
+          </Switch>
         </main>
         <Footer />
       </div>
