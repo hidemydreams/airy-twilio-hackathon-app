@@ -14,6 +14,7 @@ export default function Header() {
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/check">Check Air</NavLink></li>
               <li><NavLink to="/articles">Pollution Articles</NavLink></li>
+              <li><NavLink to="/charts">Charts</NavLink></li>
             </ul>
           </div>
           <div className="createdBy">

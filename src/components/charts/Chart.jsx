@@ -83,16 +83,16 @@ class ChartBar extends Component {
 
 
       chartData2: {
-        labels: ['Do not pollute the environment', 'Use environmentally friendly fuels', 'Live a healthy life', 'To plant trees', 'Use transport less often'],
+        labels: ['Do not pollute the environment', 'Use environmentally friendly fuels', 'Live a healthy life', 'Planting trees', 'Use transport less often'],
         datasets: [
           {
             label: '',
             data: [
-              47, 5,
-              37, 5,
+              47.5,
+              37.5,
               20,
-              11, 25,
-              21, 25,
+              11.25,
+              21.25,
               0
             ],
             backgroundColor: [
