@@ -17,8 +17,27 @@ export default function Header() {
             </ul>
           </div>
           <div className="createdBy">
-            <p> Created by</p>
-            <p> Wild Code School Students</p>
+            <p> Created by Wild Code School Students</p>
+            <div className="students">
+              <p className="students__item">
+                <p>Nazar</p>
+                <div className="links">
+                  <a href="https://github.com/hidemydreams">GitHub</a> <a href="https://www.linkedin.com/in/nazar-archakov/">LinkedIn</a>
+                </div>
+              </p>
+              <p className="students__item">
+                <p>Arseniy</p>
+                <div className="links">
+                  <a href="https://github.com/Maslovars">GitHub</a> <a href="https://www.linkedin.com/in/arseniy-maslov/">LinkedIn</a>
+                </div>
+              </p>
+              <p className="students__item">
+                <p>Tatsiana</p>
+                <div className="links">
+                  <a href="https://github.com/gortatka">GitHub</a> <a href="https://www.linkedin.com/in/tatsiana-horbatsevich/">LinkedIn</a>
+                </div>
+              </p>
+            </div>
           </div>
         </div>
       </div>
