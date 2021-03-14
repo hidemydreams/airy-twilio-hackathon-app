@@ -35,6 +35,7 @@ export default function CheckPage() {
   }
 
   const setUserLocation = (somedata) => {
+    console.log(somedata)
     setAddress(`${somedata.data[0].locality}, ${somedata.data[0].country}`);
     setCoords({ lat: somedata.data[0].latitude, lng: somedata.data[0].longitude });
     getAirInfo(somedata.data[0].latitude, somedata.data[0].longitude);
