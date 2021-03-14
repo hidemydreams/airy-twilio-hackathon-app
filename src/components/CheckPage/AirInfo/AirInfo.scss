@@ -42,6 +42,55 @@
     font-size: 1.7rem;
     margin-bottom: 7px;
 
+
+    &:nth-child(1) span {
+      &:hover::after {
+        content: "Carbon monoxide"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(2) span {
+      &:hover::after {
+        content: "Nitrogen monoxide"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(3) span {
+      &:hover::after {
+        content: "Nitrogen dioxide"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(4) span {
+      &:hover::after {
+        content: "Ozone"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(5) span {
+      &:hover::after {
+        content: "Sulphur dioxide"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(6) span {
+      &:hover::after {
+        content: "Fine particles matter"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(7) span {
+      &:hover::after {
+        content: "Coarse particulate matter"; /* Выводим текст */
+      }
+    }
+
+    &:nth-child(8) span {
+      &:hover::after {
+        content: "Ammonia"; /* Выводим текст */
+      }
+    }
+
     span {
       color: #ffdada;
       position: relative;
@@ -57,7 +106,7 @@
     font-family: Arial, sans-serif; /* Гарнитура шрифта */
     font-size: 13px; /* Размер текста подсказки */
     color: white;
-    padding: 5px 10px; /* Поля */
+    padding: 0.5em 1em/* Поля */
       }
     }
   }

@@ -5,6 +5,17 @@ import { motion } from 'framer-motion'
 
 export default function AirInfo({ airInfo }) {
 
+
+  const timeConverter = (UNIX_timestamp) => {
+    let a = new Date(UNIX_timestamp * 1000);
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let year = a.getFullYear();
+    let month = months[a.getMonth()];
+    let date = a.getDate();
+    let time = date + ' ' + month + ' ' + year + ' '
+    return time;
+  }
+
   return (
     <div className="info-section">
       {airInfo ? (<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className={`info-card ${airInfo?.list[0].main.aqi === 1 ? "green-card" : null || airInfo?.list[0].main.aqi === 2 ? "yellow-card" : null || airInfo?.list[0].main.aqi === 3 ? "orange-card" : null || airInfo?.list[0].main.aqi === 4 ? "dark_orange-card" : null || airInfo?.list[0].main.aqi === 5 ? "red-card" : null}`}>
@@ -30,8 +41,8 @@ export default function AirInfo({ airInfo }) {
           </div>
         </div>
         <div className="bottom">
-          <p>** You can get information on any chemical compound  and normal value of it just by clicking on it</p>
-          <p>Last Information Update: 03/11/2021 @ 3:56pm</p>
+          <p>** You can get full name of on any chemical compound just by hovering on it</p>
+          <p>Last Information Update: {timeConverter(airInfo.list[0].dt)}</p>
         </div>
       </motion.div>) : <BeforeStart />}
     </div>
