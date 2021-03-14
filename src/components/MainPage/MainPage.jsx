@@ -10,9 +10,9 @@ export default function MainPage() {
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="main-page">
         <div className="Title">
           <h1>Know, what you breath</h1>
-          <p>A small app which is built to help you getting some information on air pollution.</p>
+          <p>A small app which is built to help you getting some information on air quality in any area.</p>
           <NavLink to='/check'>
-            <button>Check my place</button>
+            <button>Check My Air</button>
           </NavLink>
         </div>
         <img className="Image" src={IMAGE} alt="air" />

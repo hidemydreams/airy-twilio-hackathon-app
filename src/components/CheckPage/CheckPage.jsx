@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AirInfo from './AirInfo/AirInfo'
 import MapSearch from './MapSearch/MapSearch'
-import Geolocation from "../GeoLocation/GeoLocation"
 import "./CheckPage.scss";
 import { motion } from "framer-motion"
 import {
@@ -23,11 +22,12 @@ export default function CheckPage() {
     const latLng = await getLatLng(results[0]);
     setCoords(latLng);
     setAddress(value);
+    setWarning(false)
   }
 
   const getAirInfo = (lat = coords.lat, lng = coords.lng) => {
     if (address == Number || address == '' || lat == null) {
-      setWarning(true)
+      setWarning(!warning)
     } else {
       fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=b2d2d94ac963070d2157287802797e13`)
         .then(data => data.json())
@@ -38,16 +38,17 @@ export default function CheckPage() {
   }
 
   const setUserLocation = (somedata) => {
-    setAddress(`${somedata.data[0].locality}, ${somedata.data[0].country}`);
-    setCoords({ lat: somedata.data[0].latitude, lng: somedata.data[0].longitude });
+    console.log(somedata)
+    const address = somedata.plus_code.compound_code
+    setAddress(`${address.substr(address.indexOf(' ') + 1)}`);
+    setCoords({ lat: somedata.results[0].geometry.location.lat, lng: somedata.results[0].geometry.location.lng });
     // getAirInfo(somedata.data[0].latitude, somedata.data[0].longitude);
   }
 
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
-        <MapSearch setAddress={setAddress} getAirInfo={getAirInfo} map={map} handleSelect={handleSelect} address={address} latitude={coords.lat} longitude={coords.lng} warning={warning} />
-        <Geolocation setUserLocation={setUserLocation} />
+        <MapSearch setUserLocation={setUserLocation} setAddress={setAddress} getAirInfo={getAirInfo} map={map} handleSelect={handleSelect} address={address} latitude={coords.lat} longitude={coords.lng} warning={warning} />
         <AirInfo airInfo={airInfo} />
       </motion.div>
     </div>
