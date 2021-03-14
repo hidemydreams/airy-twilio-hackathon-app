@@ -39,8 +39,9 @@ export default function CheckPage() {
 
   const setUserLocation = (somedata) => {
     console.log(somedata)
-    setAddress(`${somedata.data[0].locality}, ${somedata.data[0].country}`);
-    setCoords({ lat: somedata.data[0].latitude, lng: somedata.data[0].longitude });
+    const address = somedata.plus_code.compound_code
+    setAddress(`${address.substr(address.indexOf(' ') + 1)}`);
+    setCoords({ lat: somedata.results[0].geometry.location.lat, lng: somedata.results[0].geometry.location.lng });
     // getAirInfo(somedata.data[0].latitude, somedata.data[0].longitude);
   }
 
