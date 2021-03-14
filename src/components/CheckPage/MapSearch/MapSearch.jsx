@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SimpleMap from './GoogleMap/GoogleMap';
 import "./MapSearch.scss";
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 
 export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress }) {

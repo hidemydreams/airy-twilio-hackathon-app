@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ArticlesPage from "./ArticlesPage";
 import './ArticleList.scss';
 import { motion } from "framer-motion"
