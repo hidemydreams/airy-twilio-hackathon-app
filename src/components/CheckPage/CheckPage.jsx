@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AirInfo from './AirInfo/AirInfo'
 import MapSearch from './MapSearch/MapSearch'
-import Geolocation from "../GeoLocation/GeoLocation"
 import "./CheckPage.scss";
 import { motion } from "framer-motion"
 import {
@@ -49,8 +48,7 @@ export default function CheckPage() {
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
-        <MapSearch setAddress={setAddress} getAirInfo={getAirInfo} map={map} handleSelect={handleSelect} address={address} latitude={coords.lat} longitude={coords.lng} warning={warning} />
-        <Geolocation setUserLocation={setUserLocation} />
+        <MapSearch setUserLocation={setUserLocation} setAddress={setAddress} getAirInfo={getAirInfo} map={map} handleSelect={handleSelect} address={address} latitude={coords.lat} longitude={coords.lng} warning={warning} />
         <AirInfo airInfo={airInfo} />
       </motion.div>
     </div>

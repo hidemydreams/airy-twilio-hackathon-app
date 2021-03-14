@@ -3,9 +3,10 @@ import SimpleMap from './GoogleMap/GoogleMap';
 import "./MapSearch.scss";
 import PlacesAutocomplete from 'react-places-autocomplete';
 import Loader from '../../common/Loader/Loader';
+import Geolocation from "../../GeoLocation/GeoLocation"
 
 
-export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress, warning }) {
+export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress, setUserLocation, warning }) {
   return (
     <div className="mapSearch">
       <div className={map ? "mapSearch__map-off" : null}>
@@ -41,6 +42,7 @@ export default function MapSearch({ map, address, handleSelect, latitude, longit
           </PlacesAutocomplete>
           <div><button onClick={() => getAirInfo()}> Check</button></div>
         </div>
+        <Geolocation setUserLocation={setUserLocation} />
       </div>
     </div>
   )

@@ -12,7 +12,7 @@ export default function AirInfo({ airInfo }) {
     let year = a.getFullYear();
     let month = months[a.getMonth()];
     let date = a.getDate();
-    let time = date + ' ' + month + ' ' + year + ' '
+    let time = date + ' ' + month + ' ' + year + ' ';
     return time;
   }
 
