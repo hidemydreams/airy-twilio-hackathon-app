@@ -16,7 +16,16 @@
       margin-bottom: 20px;
     }
     p {
-      font-size: 20px;
+      font-size: 20px;      
+    }
+    .warning {
+      display: none;
+      
+    }
+    .warning__text {
+      padding-top: 5px;
+      font-size: 30px;
+      color: red;
     }
   }
   .search-input {

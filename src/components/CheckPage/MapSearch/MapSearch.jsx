@@ -5,13 +5,14 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import Loader from '../../common/Loader/Loader';
 
 
-export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress }) {
+export default function MapSearch({ map, address, handleSelect, latitude, longitude, getAirInfo, setAddress, warning }) {
   return (
     <div className="mapSearch">
       <div className={map ? "mapSearch__map-off" : null}>
         <div className="mapSearch__text">
           <h1>Check quality of the  air in your city in just 2 clicks!</h1>
           <p>Enter your city or country to get information about the air you are breathing!</p>
+          <div className={warning ? "warning__text" : "warning"} >Please select a place from the dropdown list!</div>
         </div>
       </div>
       <div className={map ? "mapSearch__map-on" : "mapSearch__map-off"}>
