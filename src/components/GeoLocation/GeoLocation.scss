@@ -6,11 +6,17 @@
     display: none;
   }
   button {
-    padding: 10px 20px;
+    padding: 1em 2em;
     border: none;
-    background-color: #417248;
+    background-color: #8691b9;
+    border-radius: 10px;
     color: white;
     outline: none;
+    transition: 0.2s;
     cursor: pointer;
+
+    &:hover {
+      background-color: #98c3b4;
+    }
   }
 }
