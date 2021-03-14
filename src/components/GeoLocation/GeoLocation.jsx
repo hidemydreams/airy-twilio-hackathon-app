@@ -24,7 +24,10 @@ class GeoLocation extends React.Component {
       <div className="location-label">
         {this.props.coords ? (
           <div className={this.state.isPressed ? "hide-btn" : null}>
-            <button onClick={() => setUserLocation(this.state.countryCity)}>Get My Location</button>
+            <button onClick={() => {
+              setUserLocation(this.state.countryCity);
+              this.setState({ isPressed: true })
+            }}>Get My Location</button>
           </div>
         ) : (
           <div><Loader /></div>
