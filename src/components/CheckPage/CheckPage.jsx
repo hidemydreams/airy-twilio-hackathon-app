@@ -31,15 +31,15 @@ export default function CheckPage() {
       .then(data => data.json())
       .then(info => setAirInfo(info))
     setMap(true)
+    setAddress('')
   }
 
   const setUserLocation = (somedata) => {
-    setAddress(`${somedata.data[0].locality}`);
+    setAddress(`${somedata.data[0].locality}, ${somedata.data[0].country}`);
     setCoords({ lat: somedata.data[0].latitude, lng: somedata.data[0].longitude });
     getAirInfo(somedata.data[0].latitude, somedata.data[0].longitude);
   }
 
-  console.log(address)
   return (
     <div className="container">
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="check-page">
