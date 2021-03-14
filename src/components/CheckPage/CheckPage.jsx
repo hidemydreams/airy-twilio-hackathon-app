@@ -23,11 +23,12 @@ export default function CheckPage() {
     const latLng = await getLatLng(results[0]);
     setCoords(latLng);
     setAddress(value);
+    setWarning(false)
   }
 
   const getAirInfo = (lat = coords.lat, lng = coords.lng) => {
     if (address == Number || address == '' || lat == null) {
-      setWarning(true)
+      setWarning(!warning)
     } else {
       fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=b2d2d94ac963070d2157287802797e13`)
         .then(data => data.json())
