@@ -3,7 +3,6 @@
 @import "../../../styles/variables";
 
 .header {
-  padding: 20px 0px;
   &__body {
     display: flex;
     align-items: center;
@@ -87,11 +86,4 @@
       }
     }
   }
-}
-
-.container {
-  max-width: 1100px;
-  padding: 0 1em;
-  margin: 0 auto;
-  height: 100%;
 }
