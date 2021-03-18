@@ -3,6 +3,7 @@ import MainPage from "../MainPage/MainPage";
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 import Header from "../common/Header/Header";
+import AboutPage from "../AboutPage/AboutPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Switch>
             <Route exact path="/" c render={() => <MainPage />}></Route>
             <Route path="/check" render={() => <CheckPage />}></Route>
+            <Route path="/about" render={() => <AboutPage />}></Route>
           </Switch>
         </main>
       </div>
