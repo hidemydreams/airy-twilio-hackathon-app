@@ -1,6 +1,6 @@
 import React from 'react';
 import "./MainPage.scss";
-import IMAGE from '../../images/IMAGE.svg';
+import image from '../../images/image.png';
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion"
 
@@ -17,7 +17,7 @@ export default function MainPage() {
             </NavLink>
           </div>
           <div className="main__image">
-            <img className="Image" src={IMAGE} alt="air" />
+            <img className="Image" src={image} alt="air" />
           </div>
         </motion.div>
       </div>

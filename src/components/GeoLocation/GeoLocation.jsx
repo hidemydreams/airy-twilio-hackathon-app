@@ -1,6 +1,5 @@
 import React from "react";
 import { geolocated } from "react-geolocated";
-import Loader from "../common/Loader/Loader";
 import "./GeoLocation.scss";
 
 class GeoLocation extends React.Component {
@@ -16,22 +15,13 @@ class GeoLocation extends React.Component {
       const data = await response.json()
       this.setState({ countryCity: data })
     }
-
   }
+
   render() {
-    const { setUserLocation } = this.props
+    console.log(this.state.countryCity)
     return (
       <div className="location-label">
-        {this.props.coords ? (
-          <div className={this.state.isPressed ? "hide-btn" : null}>
-            <button onClick={() => {
-              setUserLocation(this.state.countryCity);
-              this.setState({ isPressed: true })
-            }}>Get My Location</button>
-          </div>
-        ) : (
-          <div><Loader /></div>
-        )}
+        d
       </div>
     )
   }

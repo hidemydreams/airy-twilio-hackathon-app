@@ -44,7 +44,7 @@ export default function AirInfo({ airInfo }) {
           <p>** You can get full name of on any chemical compound just by hovering on it</p>
           <p>Last Information Update: {timeConverter(airInfo.list[0].dt)}</p>
         </div>
-      </motion.div>) : <BeforeStart />}
+      </motion.div>) : null}
     </div>
   )
 }
