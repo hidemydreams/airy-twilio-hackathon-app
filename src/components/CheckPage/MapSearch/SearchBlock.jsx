@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "./SearchBlock.scss";
 import PlacesAutocomplete from 'react-places-autocomplete';
 import Loader from '../../common/Loader/Loader';
-import Geolocation from "../../GeoLocation/GeoLocation"
 import AirInfo from '../AirInfo/AirInfo';
 
 
@@ -37,7 +36,6 @@ export default function SearchBlock({ map, address, handleSelect, latitude, long
             getAirInfo();
             setIsPressed(!isPressed)
           }}> Check</button>
-          <Geolocation setUserLocation={setUserLocation} />
         </div>
       </div>)}
     </div>
